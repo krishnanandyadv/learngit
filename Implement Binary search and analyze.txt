@@ -1,0 +1,41 @@
+ Implement Binary search and analyze its complexity.
+
+Binary search is an efficient search algorithm that works on sorted arrays or lists by repeatedly dividing the search interval in half. Here's a Python implementation of binary search:
+
+python
+Copy code
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1  # Return -1 if the target is not found
+
+# Example usage:
+arr = [1, 2, 3, 4, 6, 8, 9]
+target = 6
+index = binary_search(arr, target)
+if index != -1:
+    print(f"Target {target} found at index {index}.")
+else:
+    print(f"Target {target} not found in the list.")
+Now, let's analyze the time complexity of binary search:
+
+Best Case: The best-case scenario for binary search occurs when the target element is found at the middle of the list. In this case, the algorithm would require only one comparison. So, the best-case time complexity is O(1).
+
+Average and Worst Case: In each step of binary search, the size of the search interval is halved. Thus, after each comparison, the search space is reduced by half. This gives a time complexity of O(log n), where n is the number of elements in the list.
+
+In summary, the time complexity of binary search is O(log n), making it significantly faster than linear search, especially for large lists. However, it's important to note that binary search requires the list to be sorted beforehand. Additionally, binary search may not be the best choice for small lists or lists that are frequently modified, as the cost of sorting or maintaining the sorted order can outweigh the benefits of the search algorithm.
+
+
+
+
+

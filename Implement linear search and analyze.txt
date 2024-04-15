@@ -1,0 +1,30 @@
+Implement linear search and analyze its complexity
+
+
+Linear search is a simple search algorithm that sequentially checks each element in a list or array until the target element is found or the end of the list is reached. Here's a basic implementation of linear search in Python:
+
+python
+Copy code
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i  # Return the index if the target is found
+    return -1  # Return -1 if the target is not found
+
+# Example usage:
+arr = [4, 2, 6, 8, 3, 9, 1]
+target = 6
+index = linear_search(arr, target)
+if index != -1:
+    print(f"Target {target} found at index {index}.")
+else:
+    print(f"Target {target} not found in the list.")
+Now, let's analyze the time complexity of linear search:
+
+Best Case: The best-case scenario for linear search occurs when the target element is found at the very beginning of the list. In this case, the algorithm would only require one comparison. So, the best-case time complexity is O(1).
+
+Average Case: On average, linear search will need to check about half of the elements in the list before finding the target (if it exists). So, the average-case time complexity is O(n/2), which is still considered O(n), where n is the number of elements in the list.
+
+Worst Case: The worst-case scenario happens when the target element is either not present in the list or is present at the very end of the list. In this case, linear search would need to compare the target with every element in the list, resulting in n comparisons. Thus, the worst-case time complexity is O(n), where n is the number of elements in the list.
+
+In summary, the time complexity of linear search is O(n), where n is the number of elements in the list. This means that as the size of the list increases, the time taken by the algorithm also increases linearly.
